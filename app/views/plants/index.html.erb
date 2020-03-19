@@ -1,0 +1,12 @@
+<!-- Plants Index -->
+<h1>Plants</h1>
+
+<!-- UL of all the plants.name -->
+<ul>
+	<% @plants.each do |plant| %>
+		<li>
+			<%= link_to plant.name, plant %> <br>
+			<br>
+		</li>
+	<% end %>
+</ul>

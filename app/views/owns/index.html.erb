@@ -1,0 +1,9 @@
+<h1>Ownership?</h1>
+<ul>
+	<% @owns.each do |own| %>
+		<li>
+			<%= link_to own.nickname, own %> <br>
+			<br>
+		</li>
+	<% end %>
+</ul>

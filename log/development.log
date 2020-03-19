@@ -1,0 +1,299 @@
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePlants (20200319184109)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "plants" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "plant_pic_url" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200319184109"]]
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsers (20200319184355)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200319184355"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateOwns (20200319184417)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "owns" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nickname" varchar, "plant_id" integer, "user_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200319184417"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-03-19 18:46:44.364202"], ["updated_at", "2020-03-19 18:46:44.364202"]]
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (7.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Joseph"], ["created_at", "2020-03-19 20:38:32.988887"], ["updated_at", "2020-03-19 20:38:32.988887"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Osgood"], ["created_at", "2020-03-19 20:38:32.993751"], ["updated_at", "2020-03-19 20:38:32.993751"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Jake"], ["created_at", "2020-03-19 20:38:32.997289"], ["updated_at", "2020-03-19 20:38:32.997289"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Samantha"], ["created_at", "2020-03-19 20:38:33.001258"], ["updated_at", "2020-03-19 20:38:33.001258"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Andrew"], ["created_at", "2020-03-19 20:38:33.005609"], ["updated_at", "2020-03-19 20:38:33.005609"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Create (0.7ms)[0m  [1m[32mINSERT INTO "plants" ("name", "plant_pic_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Monstera Deliciosa"], ["plant_pic_url", "https://static.turbosquid.com/Preview/001211/193/QF/3D-monster-deliciosa-model_Z.jpg"], ["created_at", "2020-03-19 20:38:33.017247"], ["updated_at", "2020-03-19 20:38:33.017247"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Create (0.3ms)[0m  [1m[32mINSERT INTO "plants" ("name", "plant_pic_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Red Rubin Basil"], ["plant_pic_url", "https://images.squarespace-cdn.com/content/v1/5968af67414fb590cb8f77e3/1548707898802-JF4LKN9IOJKU7VWYR2OQ/ke17ZwdGBToddI8pDm48kNZ1Hmi--5wJzxRjVS3Ku0pZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpybVZGEQdftFwX4SoPYtgWbk9WjizIURtrQdSi5hG3Dn1POeL701yjAeqrQiO25QLY/il_570xN.1418946704_j50m.jpg"], ["created_at", "2020-03-19 20:38:33.021532"], ["updated_at", "2020-03-19 20:38:33.021532"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Create (0.4ms)[0m  [1m[32mINSERT INTO "plants" ("name", "plant_pic_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Maranta Red"], ["plant_pic_url", "https://images-na.ssl-images-amazon.com/images/I/81qrgsKd1ML._AC_SL1500_.jpg"], ["created_at", "2020-03-19 20:38:33.025651"], ["updated_at", "2020-03-19 20:38:33.025651"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Create (0.4ms)[0m  [1m[32mINSERT INTO "plants" ("name", "plant_pic_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Silver Pothos"], ["plant_pic_url", "https://i.pinimg.com/originals/b6/4f/86/b64f8622ba2f70578cfce69c279109be.jpg"], ["created_at", "2020-03-19 20:38:33.029645"], ["updated_at", "2020-03-19 20:38:33.029645"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Create (0.4ms)[0m  [1m[32mINSERT INTO "plants" ("name", "plant_pic_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Philodendron Hederaceum"], ["plant_pic_url", "https://cdn.shopify.com/s/files/1/0212/1030/0480/products/51dAPGUuoxL_350x400_crop_center.jpg?v=1583894295"], ["created_at", "2020-03-19 20:38:33.034080"], ["updated_at", "2020-03-19 20:38:33.034080"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Create (0.5ms)[0m  [1m[32mINSERT INTO "plants" ("name", "plant_pic_url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Tradescantia Zebrina"], ["plant_pic_url", "https://images-na.ssl-images-amazon.com/images/I/51BY3jRhW-L._AC_SX425_.jpg"], ["created_at", "2020-03-19 20:38:33.037872"], ["updated_at", "2020-03-19 20:38:33.037872"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Joseph"], ["created_at", "2020-03-19 20:39:15.556450"], ["updated_at", "2020-03-19 20:39:15.556450"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Osgood"], ["created_at", "2020-03-19 20:39:15.561250"], ["updated_at", "2020-03-19 20:39:15.561250"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Jake"], ["created_at", "2020-03-19 20:39:15.568670"], ["updated_at", "2020-03-19 20:39:15.568670"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Samantha"], ["created_at", "2020-03-19 20:39:15.573296"], ["updated_at", "2020-03-19 20:39:15.573296"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Andrew"], ["created_at", "2020-03-19 20:39:15.578168"], ["updated_at", "2020-03-19 20:39:15.578168"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "plants" WHERE "plants"."name" = ? LIMIT ?[0m  [["name", "Monstera Deliciosa"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "plants" WHERE "plants"."name" = ? LIMIT ?[0m  [["name", "Red Rubin Basil"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "plants" WHERE "plants"."name" = ? LIMIT ?[0m  [["name", "Maranta Red"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "plants" WHERE "plants"."name" = ? LIMIT ?[0m  [["name", "Silver Pothos"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "plants" WHERE "plants"."name" = ? LIMIT ?[0m  [["name", "Philodendron Hederaceum"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "plants" WHERE "plants"."name" = ? LIMIT ?[0m  [["name", "Tradescantia Zebrina"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/plants" for ::1 at 2020-03-19 16:39:35 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlantsController#index as HTML
+  Rendering plants/index.html.erb within layouts/application
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  ↳ app/views/plants/index.html.erb:3
+  Rendered plants/index.html.erb within layouts/application (Duration: 11.9ms | Allocations: 4772)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/josephaguzzardo/Library/Mobile Documents/com~apple~CloudDocs/Dev Files/FlatIron School/Labs/Mod 2/Week 2/Rails/Plant App/Plantstagram/public/packs
+[Webpacker] Hash: 32e57f147dbdcbbf0c82
+Version: webpack 4.42.0
+Time: 2244ms
+Built at: 03/19/2020 4:39:40 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-bbe9c4a129ab949e0636.js    124 KiB  application  [emitted] [immutable]  application
+js/application-bbe9c4a129ab949e0636.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-bbe9c4a129ab949e0636.js js/application-bbe9c4a129ab949e0636.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+Completed 200 OK in 5011ms (Views: 4969.0ms | ActiveRecord: 1.0ms | Allocations: 29714)
+
+
+Started GET "/plants/4" for ::1 at 2020-03-19 16:39:42 -0400
+Processing by PlantsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPlant Load (1.1ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/plants_controller.rb:31:in `find_plant'
+  Rendering plants/show.html.erb within layouts/application
+  Rendered plants/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 125)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 14.9ms | ActiveRecord: 1.1ms | Allocations: 5943)
+
+
+Started GET "/plants/4" for ::1 at 2020-03-19 16:39:45 -0400
+Processing by PlantsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/plants_controller.rb:31:in `find_plant'
+  Rendering plants/show.html.erb within layouts/application
+  Rendered plants/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 11)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 10.8ms | ActiveRecord: 0.1ms | Allocations: 5245)
+
+
+Started GET "/plants/4" for ::1 at 2020-03-19 16:40:39 -0400
+Processing by PlantsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/plants_controller.rb:31:in `find_plant'
+  Rendering plants/show.html.erb within layouts/application
+  Rendered plants/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 118)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 27.1ms | ActiveRecord: 0.2ms | Allocations: 6703)
+
+
+Started GET "/plants" for ::1 at 2020-03-19 16:40:48 -0400
+Processing by PlantsController#index as HTML
+  Rendering plants/index.html.erb within layouts/application
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  ↳ app/views/plants/index.html.erb:3
+  Rendered plants/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 976)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 59ms (Views: 57.1ms | ActiveRecord: 0.2ms | Allocations: 5842)
+
+
+Started GET "/plants" for ::1 at 2020-03-19 16:41:15 -0400
+Processing by PlantsController#index as HTML
+  Rendering plants/index.html.erb within layouts/application
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  ↳ app/views/plants/index.html.erb:3
+  Rendered plants/index.html.erb within layouts/application (Duration: 15.7ms | Allocations: 4854)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.1ms | Allocations: 6066)
+
+
+  
+ActionView::Template::Error (undefined method `plant_pic_url' for nil:NilClass):
+    3: 	<% @plants.each do |plant| %>
+    4: 		<li>
+    5: 			<%= link_to plant.name, plant %> <br>
+    6: 			<img src="<%=@plant.plant_pic_url%>">
+    7: 			<br>
+    8: 		</li>
+    9: 	<% end %>
+  
+app/views/plants/index.html.erb:6
+app/views/plants/index.html.erb:3
+Started GET "/plants" for ::1 at 2020-03-19 16:41:22 -0400
+Processing by PlantsController#index as HTML
+  Rendering plants/index.html.erb within layouts/application
+  [1m[36mPlant Load (0.8ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  ↳ app/views/plants/index.html.erb:3
+  Rendered plants/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1030)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 31.1ms | ActiveRecord: 0.8ms | Allocations: 6735)
+
+
+Started GET "/plants" for ::1 at 2020-03-19 16:43:48 -0400
+Processing by PlantsController#index as HTML
+  Rendering plants/index.html.erb within layouts/application
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  ↳ app/views/plants/index.html.erb:6
+  Rendered plants/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 988)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 18.1ms | ActiveRecord: 0.1ms | Allocations: 6637)
+
+
+Started GET "/plants/2" for ::1 at 2020-03-19 16:43:49 -0400
+Processing by PlantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/plants_controller.rb:31:in `find_plant'
+  Rendering plants/show.html.erb within layouts/application
+  Rendered plants/show.html.erb within layouts/application (Duration: 11.8ms | Allocations: 124)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 24.4ms | ActiveRecord: 0.2ms | Allocations: 5492)
+
+
+Started GET "/plants/6" for ::1 at 2020-03-19 16:43:53 -0400
+Processing by PlantsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/plants_controller.rb:31:in `find_plant'
+  Rendering plants/show.html.erb within layouts/application
+  Rendered plants/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 12)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.2ms | Allocations: 5244)
+
+
+Started GET "/plants/2" for ::1 at 2020-03-19 16:43:54 -0400
+Processing by PlantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/plants_controller.rb:31:in `find_plant'
+  Rendering plants/show.html.erb within layouts/application
+  Rendered plants/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 11)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 21.8ms | ActiveRecord: 0.3ms | Allocations: 5231)
+
+
+Started GET "/plants/1" for ::1 at 2020-03-19 16:43:56 -0400
+Processing by PlantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlant Load (2.1ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/plants_controller.rb:31:in `find_plant'
+  Rendering plants/show.html.erb within layouts/application
+  Rendered plants/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 11)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 13.7ms | ActiveRecord: 2.1ms | Allocations: 5233)
+
+
+Started GET "/plants/3" for ::1 at 2020-03-19 16:44:02 -0400
+Processing by PlantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/plants_controller.rb:31:in `find_plant'
+  Rendering plants/show.html.erb within layouts/application
+  Rendered plants/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 11)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 15.6ms | ActiveRecord: 0.3ms | Allocations: 5230)
+
+
+Started GET "/plants/5" for ::1 at 2020-03-19 16:44:56 -0400
+Processing by PlantsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/plants_controller.rb:31:in `find_plant'
+  Rendering plants/show.html.erb within layouts/application
+  Rendered plants/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 11)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 31.2ms | ActiveRecord: 0.2ms | Allocations: 5229)
+
+
+Started GET "/plants/6" for ::1 at 2020-03-19 16:46:11 -0400
+Processing by PlantsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mPlant Load (0.5ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/plants_controller.rb:31:in `find_plant'
+  Rendering plants/show.html.erb within layouts/application
+  Rendered plants/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 11)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 17.9ms | ActiveRecord: 0.5ms | Allocations: 5225)
+
+
+Started GET "/plants/1" for ::1 at 2020-03-19 16:46:45 -0400
+Processing by PlantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/plants_controller.rb:31:in `find_plant'
+  Rendering plants/show.html.erb within layouts/application
+  Rendered plants/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 11)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 12.7ms | ActiveRecord: 0.1ms | Allocations: 5234)
+
+
